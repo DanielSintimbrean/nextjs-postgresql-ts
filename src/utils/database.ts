@@ -1,9 +1,16 @@
 import { Pool } from "pg";
 
-new Pool({
-  user: "postgres",
-  password: "mysecretpassword",
-  host: "localhost",
-  port: 5432,
-  database: "mydb",
-});
+let connection: Pool;
+let init: boolean = false;
+
+if (!init) {
+  connection = new Pool({
+    user: "danields",
+    host: "localhost",
+    port: 5432,
+    database: "nextjsts",
+  });
+  init = true;
+}
+
+export { connection };
