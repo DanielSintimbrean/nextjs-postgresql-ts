@@ -6,6 +6,7 @@ import { Task } from "src/interfaces/task";
 import { Grid, Button } from "semantic-ui-react";
 import { useRouter } from "next/router";
 import TaskList from "src/components/tasksList";
+import Layout from "src/components/layaout";
 
 interface Props {
   tasks: Task[];
@@ -15,7 +16,7 @@ const Home: NextPage<Props> = ({ tasks }: Props) => {
   const router = useRouter();
 
   return (
-    <div>
+    <Layout>
       {tasks.length === 0 ? (
         <Grid
           columns={3}
@@ -35,7 +36,7 @@ const Home: NextPage<Props> = ({ tasks }: Props) => {
       ) : (
         <TaskList tasks={tasks}></TaskList>
       )}
-    </div>
+    </Layout>
   );
 };
 
